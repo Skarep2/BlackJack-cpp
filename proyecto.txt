@@ -1,0 +1,81 @@
+Nombre del Algoritmo: BlackJack
+
+Declaración de Variables:
+    Entero: jugador, maquina, carta
+    Cadena: mensaje_jugador, mensaje_maquina, respuesta_jugador
+    Entero: carta1_jugador, carta2_jugador, carta1_maquina, carta2_maquina
+
+Declaración de Subprocesos:
+
+Nombre del Subproceso: plus_card(jugador, mensaje_jugador)
+    Declaración de Variables:
+        Entero: carta
+        Cadena: mensaje_jugador
+
+    1.- Inicio
+    2.- Hacer carta = draw_card(), jugador += carta
+    3.- Hacer mensaje_jugador += " " + carta
+    4.- Fin
+
+Nombre del Subproceso: player_turn(jugador, mensae_jugador)
+    Declaración de Variables:
+        Cadena: respuesta_jugador
+
+    1.- Inicio
+    2.- Escribir "Tus cartas son: ", mensaje_jugador
+    3.- Escribir "Tu puntaje es: ", jugador
+    4.- Mientras jugador < 21 hacer
+        5.- Escribir "¿Deseas pedir una carta adicional? (si/no)"
+        6.- Leer respuesta_jugador
+        7.- Si respuesta_jugador = "si" entonces
+            8.- Llamar a plus_card(jugador, mensaje_jugador)
+            9.- Escribir "Tu nuevo puntaje es: ", jugador
+            10.- Si jugador > 21 entonces
+                11.- Escribir "Has perdido. Tu puntaje es mayor a 21."
+                12.- Salir
+            13.- Fin Si
+            14.- Si jugador = 21 entonces
+                15.- Escribir "¡Has ganado! Tu puntaje es exactamente 21."
+                16.- Salir
+            17.- Fin Si
+        18.- Si no entonces
+            19.- Salir
+        20.- Fin Si
+    21.- Fin Mientras
+    22.- Fin
+
+Nombre del Subproceso: mostrar_cartas_maquina(mensaje_maquina, maquina)
+    1.- Inicio
+    2.- Escribir "Las cartas de la máquina son: ", mensaje_maquina
+    3.- Escribir "El puntaje de la máquina es: ", maquina
+    4.- Fin
+
+Nombre del Subproceso: comparar_puntajes(jugador, maquina)
+    1.- Inicio
+    2.- Si jugador > maquina entonces
+        3.- Escribir "¡Felicidades! Has ganado la ronda."
+    4.- Si no jugador < maquina entonces
+        5.- Escribir "La máquina ha ganado la ronda."
+    6.- Si no
+        7.- Escribir "Es un empate."
+    8.- Fin Si
+    9.- Fin
+
+Nombre del Subproceso: iniciar_juego(mensaje_jugador, jugador, mensaje_maquina, maquina)
+    Declaración de Variables:
+        Entero: carta1_jugador, carta2_jugador, carta1_maquina, carta2_maquina
+
+    1.- Inicio
+    2.- Hacer carta1_jugador = draw_card(), carta2_jugador = draw_card()
+    3.- Hacer jugador = carta1_jugador + carta2_jugador
+    4.- Hacer mensaje_jugador = " " + carta1_jugador + " " + carta2_jugador
+    5.- Hacer carta1_maquina = draw_card(), carta2_maquina = draw_card()
+    6.- Hacer maquina = carta1_maquina + carta2_maquina
+    7.- Hacer mensaje_maquina = " " + carta1_maquina + " " + carta2_maquina
+    8.- Llamar a player_turn()
+    9.- Si jugador <= 21 entonces
+        10.- Llamar a mostrar_cartas_maquina()
+        11.- Llamar a comparar_puntajes()
+    12.- Fin Si
+    13.- Fin
+
