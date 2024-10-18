@@ -122,7 +122,6 @@ public class Main {
             String dealerMessage = "Las cartas del dealer son: ";
             int[] cards = new int[52];
 
-            // Función para crear el mazo
             void createDeck() {
                 int cardValue = 2;
                 int cardCount = 0;
@@ -155,18 +154,14 @@ public class Main {
                 return cards[card]; 
             }
 
-            // Función para iniciar el juego y repartir las cartas
             void initGame() {
-                // Repartir dos cartas al jugador
                 player = drawCard() + drawCard();
                 System.out.println(playerMessage + player);
 
-                // Repartir dos cartas al dealer
                 dealer = drawCard() + drawCard();
                 System.out.println(dealerMessage + dealer);
             }
 
-            // Función para validar el ganador
             void checkWinner() {
                 if (player == 21) {
                     System.out.println("¡Ganaste con 21 puntos!");
