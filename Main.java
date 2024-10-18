@@ -52,7 +52,7 @@ public class Main {
                 class Card {
                     final Suite suite;
                     final Figure figure;
-                    boolean isTaken = false;  // Corregido
+                    boolean isTaken = false; 
 
                     Card(Suite suite, Figure figure) {
                         this.suite = suite;
@@ -82,7 +82,7 @@ public class Main {
                         }
                     }
 
-                    void shuffle() {  // Mover shuffle dentro de Deck
+                    void shuffle() {
                         Random random = new Random();
                         for (int i = 0; i < cards.length; i++) {
                             int randomIndex = random.nextInt(cards.length);
@@ -135,7 +135,7 @@ public class Main {
                                 cardValue = 10;
                                 break;
                             case 13:
-                                cardValue = 11; // El As vale 11 puntos
+                                cardValue = 11;
                                 break;
                             default:
                                 break;
@@ -144,15 +144,15 @@ public class Main {
                         cardCount++;
                         cardValue++;
                     }
-                    cardValue = 2; // Reiniciar valor para la siguiente figura
+                    cardValue = 2;
                 }
             }
 
-            // Función para repartir una carta aleatoria
+            
             int drawCard() {
                 Random random = new Random();
-                int card = random.nextInt(52); // Genera un número entre 0 y 51
-                return cards[card]; // Regresa el valor de la carta correspondiente
+                int card = random.nextInt(52); 
+                return cards[card]; 
             }
 
             // Función para iniciar el juego y repartir las cartas
